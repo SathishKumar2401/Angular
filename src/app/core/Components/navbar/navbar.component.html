@@ -1,0 +1,28 @@
+<div>
+  <mat-toolbar class="navcolor">
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="menu-spacer"></span>
+    <div fxShow="true" fxHide.lt-md>
+      <button routerLink="/app/home" mat-button>Home</button>
+      <button routerLink="/app/employee" mat-button>Employee</button>
+      <button routerLink="/app/department" mat-button>Department</button>
+      <button routerLink="/app/comments" mat-button>Comments</button>
+      <button routerLink="/signin" mat-button>Logout</button>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav style="height: 270px; width: 100%;">
+      <mat-nav-list class="sf">
+        <button routerLink="/app/home" mat-button color="accent" (click)="sidenav.toggle()">Home</button>
+        <button routerLink="/app/employee" mat-button color="accent" (click)="sidenav.toggle()">Employee</button>
+        <button routerLink="/app/department" mat-button color="accent" (click)="sidenav.toggle()">Department</button>
+        <button routerLink="/app/comments" mat-button color="accent" (click)="sidenav.toggle()">Comments</button>
+        <button routerLink="/signin" mat-button color="accent" (click)="sidenav.toggle()">Logout</button>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

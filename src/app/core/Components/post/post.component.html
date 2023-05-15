@@ -1,0 +1,33 @@
+<div class="comments" *ngIf="postComment!==undefined">
+  <h6 *ngIf="postComment.length<1">No Comments found</h6>
+  <ul *ngIf="postComment.length>0">
+    <li *ngFor="let post of postComment; let i = index;">
+      <div class="col-12 col-sm-12 comment-container">
+
+        <div class="actions">
+          <span> <span style="font-weight: bold;">Sathish Kumar M</span> {{currentDate | date: 'medium'}}</span>
+          <span class="divider"></span>
+          <p>{{post.commentTxt}}</p>
+          <!-- <button mat-button class="btn btn-sm btn-info" (click)="replyComment(i)"><mat-icon
+              class="iconstyle">reply</mat-icon>Reply</button> -->
+          <span class="divider"></span>
+          <!-- <button mat-button class="btn btn-sm btn-danger" (click)="removeComment(i)">Delete</button> -->
+        </div>
+        <div class="childCommentBox">
+          <div datacontainer></div>
+          <ul *ngIf="post?.replyComment?.length>0">
+            <li *ngFor="let rl of post.replyComment">
+              <div class="col-12 col-sm-12 comment-container">
+                <span> <span style="font-weight: bold;">Senthil Kumar P</span> {{currentDate | date: 'medium'}}</span>
+                <p>{{rl.commentTxt}}</p>
+              </div>
+            </li>
+          </ul>
+          <button mat-button class="btn btn-sm btn-info" (click)="replyComment(i)"><mat-icon
+              class="iconstyle">reply</mat-icon>Reply</button>
+          <button mat-button class="btn btn-sm btn-danger" (click)="removeComment(i)">Delete</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
